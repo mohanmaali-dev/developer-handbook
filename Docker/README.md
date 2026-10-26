@@ -830,4 +830,88 @@ This shares the current host directory with `/app` in the container. Run your pr
 
 ---
 
+# Docker Interview Questions and Answers
+
+## 1. What is Docker?
+
+Docker is a platform for packaging and running applications in isolated containers.
+
+## 2. What is the difference between an image and a container?
+
+An image is a template; a container is an instance created from that image.
+
+## 3. What is the difference between a container and a virtual machine?
+
+Containers share the host OS kernel. Virtual machines run a separate guest operating system on virtualized hardware.
+
+## 4. What is a Dockerfile?
+
+A text file containing instructions used to build a Docker image.
+
+## 5. What is the difference between `docker run` and `docker start`?
+
+`docker run` creates and starts a new container. `docker start` starts an existing stopped container.
+
+## 6. What is the difference between `docker stop` and `docker rm`?
+
+`docker stop` stops a container. `docker rm` removes a stopped container.
+
+## 7. Why do we use Docker volumes?
+
+To persist data independently of a container's writable layer, especially for databases.
+
+## 8. What is the difference between a volume and a bind mount?
+
+Docker manages a volume's storage. A bind mount connects a specific host path to a container path.
+
+## 9. Does deleting a container delete its volume?
+
+A separately managed named volume normally remains after container deletion unless explicitly removed.
+
+## 10. What does `-p 8080:80` mean?
+
+It maps host port `8080` to container port `80`.
+
+## 11. What is the purpose of `EXPOSE`?
+
+It documents the port used by the application inside the container. It does not publish that port automatically.
+
+## 12. What is a Docker network?
+
+A mechanism that allows containers to communicate with each other and, when configured, with external networks.
+
+## 13. How can two containers communicate?
+
+Connect them to the same user-defined network and use the other container's name as its hostname.
+
+## 14. What is Docker Compose?
+
+A tool for defining and running multi-container applications through a YAML configuration file.
+
+## 15. How do you check container logs?
+
+Use `docker logs CONTAINER_NAME`. Add `-f` to follow logs live.
+
+## 16. What is the purpose of `docker exec`?
+
+It runs a command inside an existing running container.
+
+## 17. What is `.dockerignore`?
+
+A file that excludes unnecessary files from the Docker build context.
+
+## 18. What happens when you rebuild an image?
+
+The image is rebuilt, but existing containers continue using the image they were created from. Recreate the container to use the updated image.
+
+## 19. How can you reduce Docker image size?
+
+Use a suitable small base image, exclude unnecessary files with `.dockerignore`, remove unnecessary packages, and use multi-stage builds where appropriate.
+
+## 20. How should you handle secrets in Docker?
+
+Avoid committing secrets or embedding them in images. Use an appropriate secret manager or runtime secret mechanism and restrict access.
+
+---
+
 **Tip:** Practice one section at a time. Start with images and containers, then ports, volumes, bind mounts, Dockerfiles, networking, and Compose.
